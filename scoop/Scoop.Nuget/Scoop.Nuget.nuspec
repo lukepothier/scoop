@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>Scoop</id>
+		<version>1.0.0-beta1</version>
+		<title>Scoop</title>
+		<authors>Luke Pothier</authors>
+		<owners>Luke Pothier</owners>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<description>MvvmCross plugin for overlaying pertinent device and application information on Android and iOS during QA</description>
+		<tags>mvvm mvvmcross cross xamarin android ios monodroid monotouch xamarin.android xamarin.ios plugin</tags>
+		<dependencies>
+			<dependency id="MvvmCross.Platform" version="4.4.0" />
+		</dependencies>
+	</metadata>
+	<files>
+
+		<!-- PCL -->
+		<file src="..\Release\Portable\Scoop.*" target="lib\portable-net45+win+wpa81+wp80" />
+
+    <!-- Android -->
+		<file src="..\Release\Portable\Scoop.*" target="lib\MonoAndroid" />
+		<file src="..\Release\Droid\Scoop.Droid.*" target="lib\MonoAndroid" />
+		<file src="BootstrapContent\ScoopPluginBootstrap.cs.pp" target="content\MonoAndroid\Bootstrap\ScoopPluginBootstrap.cs.pp" />
+
+		<!-- iOS -->
+		<file src="..\Release\Portable\Scoop.*" target="lib\Xamarin.iOS10" />
+		<file src="..\Release\iOS\Scoop.iOS.*" target="lib\Xamarin.iOS10" />
+		<file src="iOSBootstrapContent\ScoopPluginBootstrap.cs.pp" target="content\Xamarin.iOS10\Bootstrap\ScoopPluginBootstrap.cs.pp" />
+
+	</files>
+</package>
