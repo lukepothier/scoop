@@ -38,6 +38,7 @@
     <Compile Include="IScoopOverlay.cs" />
     <Compile Include="Preserve.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoopConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
