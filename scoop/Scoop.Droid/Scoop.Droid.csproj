@@ -59,9 +59,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Scoop\Scoop.csproj">
       <Project>{8f151fe1-9db3-4205-8914-6c8dd8501169}</Project>
       <Name>Scoop</Name>
