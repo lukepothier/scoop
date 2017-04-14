@@ -1,4 +1,5 @@
 using Android.Graphics;
+using Android.Runtime;
 using Android.Views;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Droid.Platform;
@@ -23,16 +24,16 @@ namespace Scoop.Droid
                 Text = $"Testing: {DateTime.Now.ToString(Configuration.DateTimeFormat)}"
             };
 
-            var flags = WindowManagerFlags.Fullscreen | WindowManagerFlags.WatchOutsideTouch | WindowManagerFlags.AllowLockWhileScreenOn | WindowManagerFlags.NotTouchable | WindowManagerFlags.NotFocusable;
+            var flags = WindowManagerFlags.NotTouchable | WindowManagerFlags.NotFocusable;
 
-            var layoutParams = new WindowManagerLayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent, WindowManagerTypes.ApplicationPanel, flags, Format.Translucent)
+            // TODO :: When Android O is out, switch from WindowManagerTypes.SystemOverlay to the Xamarin equivalent of TYPE_APPLICATION_OVERLAY: https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#TYPE_APPLICATION_OVERLAY
+            var layoutParams = new WindowManagerLayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent, WindowManagerTypes.SystemOverlay, flags, Format.Translucent)
             {
                 Gravity = GravityFlags.Top | GravityFlags.Right
             };
 
-            var windowManager = context.WindowManager;
+            var windowManager = context.ApplicationContext.GetSystemService(Android.Content.Context.WindowService).JavaCast<IWindowManager>();
 
-            // TODO :: deal with WindowManagerBadTokenExceptions
             windowManager.AddView(overlayView, layoutParams);
         }
     }
